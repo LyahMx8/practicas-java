@@ -1,16 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.recursividad;
-
 import java.io.*;
 import java.util.Scanner;
 
-/**
- *
- * @author LyahMotta
- */
 public class InventarioEliminacionLogica {
     // Método para mostrar contenido de un archivo
     public static void mostrarArchivo(String nombreArchivo) {
@@ -46,7 +36,7 @@ public class InventarioEliminacionLogica {
             String newFile = "";
 
             while ((linea = br.readLine()) != null) {
-                if (linea.contains(productoEliminar)) {
+                if (!linea.startsWith("#") && linea.contains(productoEliminar)) {
                     newFile += "#" + linea + "\n";
                 } else {
                     newFile += linea + "\n";
@@ -63,30 +53,9 @@ public class InventarioEliminacionLogica {
         }
     }
 
-
-
     // 2. Crear un nuevo archivo sin los registros marcados como eliminados
     public static void crearArchivoSinEliminados(String archivoOriginal, String archivoNuevo) {
-        try (BufferedReader br = new BufferedReader(new FileReader(archivoOriginal))) {
-            String linea;
-            String newFile = "";
-
-            while ((linea = br.readLine()) != null) {
-                if (linea.startsWith("#")) {
-                    newFile += "";
-                } else {
-                    newFile += linea + "\n";
-                }
-            }
-
-            try (PrintWriter pw = new PrintWriter(new FileWriter(archivoNuevo))) {
-                pw.print(newFile);
-            } catch (IOException e) {
-                System.out.println("Error al escribir en el archivo: " + e.getMessage());
-            }
-        } catch (IOException e) {
-            System.out.println("Error al leer archivo: " + e.getMessage());
-        }
+        // Completar implementación
     }
 
     public static void main(String[] args) {
